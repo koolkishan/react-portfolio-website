@@ -34,7 +34,7 @@ function Services() {
             <div className="services__service" key={service.type}>
               <div className="services__service__image">
                 <div className="services__service__image__gradient"></div>
-                <img src={service.image} alt="service image" />
+                <img src={service.image} alt="service" />
               </div>
               <div className="services__service__title">
                 <span>0{index + 1}</span>
