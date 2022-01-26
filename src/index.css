@@ -23,6 +23,7 @@ button {
 }
 
 body {
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

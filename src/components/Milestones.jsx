@@ -4,8 +4,12 @@ import milestone1 from "assets/milestone1.png";
 import milestone2 from "assets/milestone2.png";
 import milestone3 from "assets/milestone3.png";
 import milestoneBackround from "assets/milestone-background.png";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { milestoneAnimations } from "animations";
 
 function Milestones() {
+  const [element, controls] = useScroll();
   const milestone = [
     {
       image: milestone1,
@@ -24,18 +28,28 @@ function Milestones() {
     },
   ];
   return (
-    <Section>
+    <Section ref={element}>
       <div className="background">
         <img src={milestoneBackround} alt="Milestone Background" />
       </div>
       <div className="milestones">
         {milestone.map((ms) => {
           return (
-            <div className="milestone" key={ms.data}>
+            <motion.div
+              className="milestone"
+              key={ms.data}
+              variants={milestoneAnimations}
+              animate={controls}
+              transition={{
+                delay: 0.03,
+                type: "tween",
+                duration: 0.8,
+              }}
+            >
               <p>{ms.amount}</p>
               <span>{ms.data}</span>
               <img src={ms.image} alt="milestone image" />
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -44,7 +58,7 @@ function Milestones() {
 }
 
 const Section = styled.section`
-  height: 80vh;
+  height: 100vh;
   background-color: var(--primary-color);
   padding: 0 10rem;
   position: relative;
@@ -84,6 +98,18 @@ const Section = styled.section`
       img {
         height: 6rem;
       }
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    height: 100%;
+    .background {
+      display: none;
+    }
+    .milestones {
+      grid-template-columns: 1fr;
+      gap: 5rem;
     }
   }
 `;

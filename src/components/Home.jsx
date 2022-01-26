@@ -3,12 +3,21 @@ import Navbar from "./Navbar";
 import styled from "styled-components";
 import home from "assets/home.png";
 import play from "assets/play.png";
+import { motion } from "framer-motion";
+import { homeAnimation, homeInfoAnimation } from "animations";
+import { useScroll } from "./useScroll";
 
 export default function Home() {
+  const [element, controls] = useScroll();
   return (
-    <Section>
+    <Section id="home" ref={element}>
       <Navbar />
-      <div className="home">
+      <motion.div
+        variants={homeAnimation}
+        animate={controls}
+        transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
+        className="home"
+      >
         <div className="content">
           <div className="title">
             <h1>Digital Crafters</h1>
@@ -22,8 +31,13 @@ export default function Home() {
           </div>
           <img src={play} alt="Play Button" />
         </div>
-      </div>
-      <div className="info">
+      </motion.div>
+      <motion.div
+        className="info"
+        variants={homeInfoAnimation}
+        animate={controls}
+        transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
+      >
         <div className="grid">
           <div className="col">
             <strong>Agency</strong>
@@ -53,7 +67,7 @@ export default function Home() {
             <p>08:00 to 18:00</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 }
@@ -61,7 +75,7 @@ export default function Home() {
 const Section = styled.section`
   background-image: url(${home});
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -83,6 +97,12 @@ const Section = styled.section`
           line-height: 5.3rem;
         }
       }
+      .subTitle {
+        p {
+          width: 70%;
+          margin-bottom: 2rem;
+        }
+      }
     }
   }
   .info {
@@ -96,6 +116,28 @@ const Section = styled.section`
       grid-template-columns: repeat(3, 1fr);
       gap: 4rem;
       color: white;
+    }
+  }
+
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .home {
+      .content {
+        padding-left: 2rem;
+        width: 100%;
+        margin-bottom: 2rem;
+        .title {
+          h1 {
+            font-size: 4rem;
+            line-height: 4rem;
+          }
+        }
+      }
+    }
+    .info {
+      position: initial;
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   }
 `;
