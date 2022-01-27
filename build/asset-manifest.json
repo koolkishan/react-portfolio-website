@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.c98e3786.css",
-    "main.js": "./static/js/main.0d08969c.js",
+    "main.js": "./static/js/main.56e4fdc6.js",
     "static/media/home.png": "./static/media/home.d00ef78779c66de360e6.png",
     "static/media/milestone-background.png": "./static/media/milestone-background.681b0b40afbada009091.png",
     "static/media/portfolio2.png": "./static/media/portfolio2.42d28200519c39a8f950.png",
@@ -17,10 +17,10 @@
     "static/media/service2.png": "./static/media/service2.c2af3a2cef34fa76933a.png",
     "index.html": "./index.html",
     "main.c98e3786.css.map": "./static/css/main.c98e3786.css.map",
-    "main.0d08969c.js.map": "./static/js/main.0d08969c.js.map"
+    "main.56e4fdc6.js.map": "./static/js/main.56e4fdc6.js.map"
   },
   "entrypoints": [
     "static/css/main.c98e3786.css",
-    "static/js/main.0d08969c.js"
+    "static/js/main.56e4fdc6.js"
   ]
 }
