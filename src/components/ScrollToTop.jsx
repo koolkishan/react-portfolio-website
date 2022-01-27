@@ -16,6 +16,7 @@ function ScrollToTop() {
 }
 
 const Div = styled.div`
+  max-width: 100vw;
   .none {
     opacity: 0;
     visibility: hidden;
@@ -23,7 +24,7 @@ const Div = styled.div`
   a {
     position: fixed;
     bottom: 40px;
-    right: 40px;
+    left: 75vw;
     background-color: var(--secondary-color);
     padding: 1rem;
     border-radius: 100%;
