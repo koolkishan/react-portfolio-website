@@ -5,16 +5,13 @@ import home from "assets/home.png";
 import play from "assets/play.png";
 import { motion } from "framer-motion";
 import { homeAnimation, homeInfoAnimation } from "animations";
-import { useScroll } from "./useScroll";
 
 export default function Home() {
-  const [element, controls] = useScroll();
   return (
-    <Section id="home" ref={element}>
+    <Section id="home">
       <Navbar />
       <motion.div
         variants={homeAnimation}
-        animate={controls}
         transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
         className="home"
       >
@@ -35,7 +32,6 @@ export default function Home() {
       <motion.div
         className="info"
         variants={homeInfoAnimation}
-        animate={controls}
         transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
       >
         <div className="grid">

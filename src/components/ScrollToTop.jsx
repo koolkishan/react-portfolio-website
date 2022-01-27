@@ -24,7 +24,7 @@ const Div = styled.div`
   a {
     position: fixed;
     bottom: 40px;
-    left: 75vw;
+    right: 40px;
     background-color: var(--secondary-color);
     padding: 1rem;
     border-radius: 100%;
@@ -36,6 +36,10 @@ const Div = styled.div`
     svg {
       color: white;
       font-size: 1.3rem;
+    }
+    @media screen and (min-width: 280px) and (max-width: 1080px) {
+      left: 75vw;
+      right: initial;
     }
   }
 `;
