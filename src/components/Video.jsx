@@ -3,13 +3,11 @@ import styled from "styled-components";
 import video1 from "assets/video1.png";
 import video2 from "assets/video2.png";
 import { motion } from "framer-motion";
-import { useScroll } from "./useScroll";
 import { videoAnimations } from "animations";
 
 function Video() {
-  const [element, controls] = useScroll();
   return (
-    <Section ref={element}>
+    <Section>
       <div className="background">
         <img src={video1} alt="Design" className="design1" />
         <img src={video2} alt="Design" className="design2" />
@@ -17,7 +15,6 @@ function Video() {
       <motion.div
         className="video"
         variants={videoAnimations}
-        animate={controls}
         transition={{
           delay: 0.03,
           type: "tween",
